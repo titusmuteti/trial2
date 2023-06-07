@@ -16,82 +16,86 @@ client = Mysql2::Client.new(
   host: 'localhost',
   username: 'mumo',
   password: 'Titusmumo@2',
-  database: 'makawasco_b_production'
+  database: 'makawasco'
 )
 
 
-Client.create([
+user = Client.create([
     {
-        firstname: "John",
-        lastname: "Nzuki",
+        first_name: "John",
+        last_name: "Nzuki",
         email: "john@example.com",
         phone_number: 712345678,
         # premise_id: 1
     },
     {
-        firstname: "Martha",
-        # lastname: "John",
+        first_name: "Martha",
+        last_name: "John",
         email: "martha@example.com",
         phone_number: 712345678,
         # premise_id: 10
     },
     {
-        firstname: "Annita",
-        # lastname: "Ray",
+        first_name: "Annita",
+        last_name: "Ray",
         email: "annita@example.com",
         phone_number: 712345678,
         # premise_id: 5
     },
     {
-        firstname: "Caleb",
-        # lastname: "Kositany",
+        first_name: "Caleb",
+        last_name: "Kositany",
         email: "caleb@example.com",
         phone_number: 712345678,
         # premise_id: 2
     },
     {
-        firstname: "Mark",
-        # lastname: "Mutiso",
+        first_name: "Mark",
+        last_name: "Mutiso",
         email: "mark@example.com",
         phone_number: 712345678,
         # premise_id: 4
     },
     {
-        firstname: "Edward",
-        # lastname: "Mwendwa",
+        first_name: "Edward",
+        last_name: "Mwendwa",
         email: "edward@example.com",
         phone_number: 712345678,
         # premise_id: 3
     },
     {
-        firstname: "Antony",
-        # lastname: "Greenword",
+        first_name: "Antony",
+        last_name: "Greenword",
         email: "antony@example.com",
         phone_number: 712345678,
         # premise_id: 6
     },
     {
-        firstname: "Mercy",
-        # lastname: "Mwende",
+        first_name: "Mercy",
+        last_name: "Mwende",
         email: "mwende@example.com",
         phone_number: 712345678,
         # premise_id: 7
     },
     {
-        firstname: "Gersmain",
-        # lastname: "Onyancha",
+        first_name: "Gersmain",
+        last_name: "Onyancha",
         email: "gersmain@example.com",
         phone_number: 712345678,
         # premise_id: 8
     },
     {
-        firstname: "Masila",
-        # lastname: "Muoki",
+        first_name: "Masila",
+        last_name: "Muoki",
         email: "masila@example.com",
         phone_number: 712345678,
         # premise_id: 9
     }
 ])
+
+user.each do |row|
+    client.query("INSERT INTO client (first_name, last_name, email, confirm_password, phone_number) VALUES ('#{row[:first_name]}', '#{row[:last_name]}', '#{row[:email]}', '#{row[:confirm_password]}','#{row[:phone_number]}')")
+  end
 
 # Premise.create([
 #     {
@@ -156,43 +160,54 @@ Client.create([
 #     },
 # ])
 
-# Employee.create([
-#     {
-#         firstname: "David",
-#         lastname: "Mutembei",
-#         location: "Tala"
-#     },
-#     {
-#         firstname: "Morris",
-#         lastname: "Obama",
-#         location: "Nguluni"
-#     },
-#     {
-#         firstname: "Tom",
-#         lastname: "Mutisya",
-#         location: "Kathithyamaa"
-#     },
-#     {
-#         firstname: "Ngusya",
-#         lastname: "Mule",
-#         location: "Kangundo"
-#     },
-#     {
-#         firstname: "Grace",
-#         lastname: "Kalondu",
-#         location: "Tala"
-#     },
-#     {
-#         firstname: "Rama",
-#         lastname: "Scholes",
-#         location: "Kangundo"
-#     },
-#     {
-#         firstname: "Moses",
-#         lastname: "Mwanzia",
-#         location: "Nguluni"
-#     },
-# ])
+employee = Employee.create([
+    {
+        first_name: "David",
+        last_name: "Mutembei",
+        location: "Tala",
+        email: "david@gmail.com"
+    },
+    {
+        first_name: "Morris",
+        last_name: "Obama",
+        location: "Nguluni",
+        email: "morris@gmail.com"
+    },
+    {
+        first_name: "Tom",
+        last_name: "Mutisya",
+        location: "Kathithyamaa",
+        email: "tom@gmail.com"
+    },
+    {
+        first_name: "Ngusya",
+        last_name: "Mule",
+        location: "Kangundo",
+        email: "mule@gmail.com"
+    },
+    {
+        first_name: "Grace",
+        last_name: "Kalondu",
+        location: "Tala",
+        email: "grace@gmail.com"
+    },
+    {
+        first_name: "Rama",
+        last_name: "Scholes",
+        location: "Kangundo",
+        email: "rama@gmail.com"
+    },
+    {
+        first_name: "Moses",
+        last_name: "Mwanzia",
+        location: "Nguluni",
+        email: "mose@gmail.com"
+    },
+])
+
+employee.each do |row|
+    client.query("INSERT INTO employee (first_name, last_name, location) VALUES ('#{row[:first_name]}', '#{row[:last_name]}', '#{row[:location]}')")
+  end
 
 # Bill.create([
 #     {
