@@ -97,68 +97,7 @@ user.each do |row|
     client.query("INSERT INTO client (first_name, last_name, email, confirm_password, phone_number) VALUES ('#{row[:first_name]}', '#{row[:last_name]}', '#{row[:email]}', '#{row[:confirm_password]}','#{row[:phone_number]}')")
   end
 
-# Premise.create([
-#     {
-#         owners_firstname: "Mark",
-#         owners_lastname: "Maweu",
-#         address: "123 Main Street",
-#         town: "Tala"
-#     },
-#     {
-#         owners_firstname: "Arnold",
-#         owners_lastname: "Mutuku",
-#         address: "234 Cornwall",
-#         town: "Kangundo"
-#     },
-#     {
-#         owners_firstname: "Roseline",
-#         owners_lastname: "Munuve",
-#         address: "45 conerwall",
-#         town: "Nguluni"
-#     },
-#     {
-#         owners_firstname: "Grace",
-#         owners_lastname: "Ndanu",
-#         address: "98 love street",
-#         town: "Tala"
-#     },
-#     {
-#         owners_firstname: "Catherine",
-#         owners_lastname: "Mutungi",
-#         address: "123 Clouds road",
-#         town: "Kathithyamaa"
-#     },
-#     {
-#         owners_firstname: "Mark",
-#         owners_lastname: "Masai",
-#         address: "123 Main Street",
-#         town: "Kangundo"
-#     },
-#     {
-#         owners_firstname: "Sila",
-#         owners_lastname: "Mutunga",
-#         address: "Main Street",
-#         town: "Tala"
-#     },
-#     {
-#         owners_firstname: "Ndanu",
-#         owners_lastname: "Rose",
-#         address: "123",
-#         town: "Kathithyamaa"
-#     },
-#     {
-#         owners_firstname: "Scholar",
-#         owners_lastname: "Mutune",
-#         address: "123 Main road",
-#         town: "Kathithyamaa"
-#     },
-#     {
-#         owners_firstname: "Dance",
-#         owners_lastname: "Group",
-#         address: "123 Main Street",
-#         town: "Nguluni"
-#     },
-# ])
+
 
 employee = Employee.create([
     {
@@ -257,46 +196,5 @@ bill.each do |row|
   end
 
 
-# Service.create([
-#     {
-#         client_id: 1,
-#         premise_id: 4,
-#         created_on: "thursday",
-#         resolved_on: "friday",
-#         # assigned_to: "morris obama",
-#         remarks: "Great service",
-#         employee_id: 1,
-#     },
-#     {
-#         client_id: 4,
-#         premise_id: 3,
-#         created_on: "monday",
-#         resolved_on: "thursday",
-#         # assigned_to: "morris obama",
-#         remarks: "Great service",
-#         employee_id: 4,
-#     },
-#     {
-#         client_id: 10,
-#         premise_id: 1,
-#         created_on: "thursday",
-#         resolved_on: "friday",
-#         # assigned_to: "morris obama",
-#         remarks: "Great service",
-#         employee_id: 2,
-#     },
-#     {
-#         client_id: 1,
-#         premise_id: 4,
-#         created_on: "thursday",
-#         resolved_on: "friday",
-#         # assigned_to: "morris obama",
-#         remarks: "on time response",
-#         employee_id: 4,
-#     },
-# ])
-
 puts "✅ Done seeding!"
-
-# Close the database connection
 client.close
