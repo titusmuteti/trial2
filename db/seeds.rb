@@ -209,68 +209,53 @@ employee.each do |row|
     client.query("INSERT INTO employee (first_name, last_name, location) VALUES ('#{row[:first_name]}', '#{row[:last_name]}', '#{row[:location]}')")
   end
 
-# Bill.create([
-#     {
-#         consumption: 5,
-#         rate_applied: 1,
-#         amount: 100,
-#         balance: 50,
-#         bill_date: "2023-5-30",
-#         from: "2023-4-1",
-#         to: "2023-5-20",
-#         due_date: "2023-6-5",
-#         paid: false,
-#         client_id: 1
-#     },
-#     {
-#         consumption: 2,
-#         rate_applied: 1,
-#         amount: 50,
-#         balance: 500,
-#         bill_date: "2023-5-30",
-#         from: "2023-4-1",
-#         to: "2023-5-20",
-#         due_date: "2023-6-5",
-#         paid: false,
-#         client_id: 5
-#     },
-#     {
-#         consumption: 50,
-#         rate_applied: 2,
-#         amount: 1000,
-#         balance: 50,
-#         bill_date: "2023-5-30",
-#         from: "2023-4-1",
-#         to: "2023-5-20",
-#         due_date: "2023-6-5",
-#         paid: false,
-#         client_id: 10
-#     },
-#     {
-#         consumption: 10,
-#         rate_applied: 1,
-#         amount: 100,
-#         balance: 0,
-#         bill_date: "2023-5-30",
-#         from: "2023-4-1",
-#         to: "2023-5-20",
-#         due_date: "2023-6-5",
-#         paid: false,
-#         client_id: 3
-#     },
-#     {
-#         consumption: 100,
-#         rate_applied: 2,
-#         amount: 2000,
-#         balance: 200,
-#         bill_date: "2023-5-30",
-#         from: "2023-4-1",
-#         to: "2023-5-20",
-#         due_date: "2023-6-5",
-#         paid: false,
-#         client_id: 6
-#     },
-# ])
+bill = Bill.create([
+    {
+        date_read: Faker::Date.backward(days: 14),
+        previous_reading: 3,
+        current_reading: 10,
+        balance: 50,
+        paid: 0,
+        date_paid: Faker::Date.forward(days: 14),
+    },
+    {
+        date_read: Faker::Date.backward(days: 14),
+        previous_reading: 300,
+        current_reading: 1000,
+        balance: 0,
+        paid: 1,
+        date_paid: Faker::Date.forward(days: 14),
+    },
+    {
+        date_read: Faker::Date.backward(days: 14),
+        previous_reading: 3,
+        current_reading: 8,
+        balance: 500,
+        paid: 1,
+        date_paid: Faker::Date.forward(days: 14),
+    },
+    {
+        date_read: Faker::Date.backward(days: 14),
+        previous_reading: 30,
+        current_reading: 55,
+        balance: 0,
+        paid: 0,
+        date_paid: Faker::Date.forward(days: 14),
+    },
+    {
+        date_read: Faker::Date.backward(days: 14),
+        previous_reading: 33,
+        current_reading: 36,
+        balance: 0,
+        paid: 1,
+        date_paid: Faker::Date.forward(days: 14),
+    },
+])
+
+bill.each do |row|
+    client.query("INSERT INTO bill (date_read, previous_reading, current_reading, balance, date_paid) VALUES ('#{row[:date_read]}', '#{row[:previous_reading]}', '#{row[:current_reading]}', '#{row[:balance]}', '#{row[:date_paid]}')")
+  end
+
 
 # Service.create([
 #     {
